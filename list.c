@@ -72,7 +72,7 @@ void pushFront(List * list, const void * data) {
   //pq es necesaria esa linea de codigo?
   if ( list->tail == NULL) list->tail = n; //si la lista es de 1 elemento se agrega al final
   list->head = n; //actualiza el primer dato
-  list->head->prev = NULL;
+  //list->head->prev = NULL;
   //n->prev = NULL; // no hay nada tras la cabecera
 }
 
