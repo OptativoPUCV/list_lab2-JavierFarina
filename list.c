@@ -43,7 +43,7 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
-  return (void*)list->tail->data;
+  return (void*)list->head->data;
 }
 
 void * lastList(List * list) {
