@@ -45,7 +45,7 @@ void * firstList(List * list) {
 void * nextList(List * list) {
   Node* puntero  = (Node*) malloc(sizeof(Node));
   puntero = list->head;
-  list->current->data = puntero->next;
+  list->current = puntero->next;
   return (void*)list->current->data;
 }
 
