@@ -45,8 +45,7 @@ void * firstList(List * list) {
 void * nextList(List * list) {
   Node* puntero  = (Node*) malloc(sizeof(Node));
   puntero = list->head;
-  list->current = puntero->next;
-  if ( list->current && list->current->data == NULL) return (void*)list->current->data;
+  list->current->data = puntero->next;
   return (void*)list->current->data;
 }
 
@@ -56,7 +55,7 @@ void * lastList(List * list) {
 }
 
 void * prevList(List * list) {
-    return (void*)list->tail->data;
+    return NULL;
 }
 
 void pushFront(List * list, const void * data) {
