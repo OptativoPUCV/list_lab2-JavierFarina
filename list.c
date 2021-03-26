@@ -45,6 +45,7 @@ void * firstList(List * list) {
 void * nextList(List * list) {
   Node* puntero  = list->head;
   list->current = puntero->next;
+   return (void*)list->current->data;
   if ( list->current && list->current->data == NULL) return NULL;
   return (void*)list->current->data;
 }
