@@ -47,7 +47,7 @@ void * nextList(List * list) {
   puntero = list->head;
   list->current = puntero->next;
   if ( list->current && list->current->data == NULL) return (void*)list->current->data;
-  return (void*)list->head->data;
+  return (void*)list->current->data;
 }
 
 void * lastList(List * list) {
