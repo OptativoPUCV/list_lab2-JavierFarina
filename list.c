@@ -43,7 +43,10 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
-  return NULL;
+  Node* puntero  = list->head;
+  list->current = puntero->next;
+  if ( list->current && list->current->data == NULL) return NULL;
+  return (void*)list->current->data;
 }
 
 void * lastList(List * list) {
