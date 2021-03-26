@@ -68,7 +68,7 @@ void * prevList(List * list) {
 void pushFront(List * list, const void * data) {
   Node* n = createNode(data);
   n->next = list->head;
-  if ( list->head ) list->head->prev = n; //nueva cabecera
+  
   if ( list->tail == NULL) list->tail = n; //si la lista es de 1 elemento se agrega al final
   list->head = n; //actualiza el primer dato
   n->prev = NULL;
