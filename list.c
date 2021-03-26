@@ -35,15 +35,17 @@ List * createList() {
 }
 
 void * firstList(List * list) {
-    list->current = list->head;
-    return (void*)list->head->data;
-    /* 
-    aca debo hacer un casting a int o void?, si no hago el casting no retorna nada
-    */
+  list->current = list->head;
+  return (void*)list->head->data;
+  /* 
+  aca debo hacer un casting a int o void?, si no hago el casting no retorna nada
+  */
 }
 
 void * nextList(List * list) {
-    return list->current->next;
+  Node* aux = list->current;
+  list->current = aux->next;
+  return aux->next;
 }
 
 void * lastList(List * list) {
