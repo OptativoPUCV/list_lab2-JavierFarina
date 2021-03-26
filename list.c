@@ -66,13 +66,10 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, const void * data) {
+  if ( list->tail == NULL ) printf("jksdh");
   Node* n = createNode(data);
   n->next = list->head;
-  if ( list->head ) {
-    list->head->prev = n;
-    list->tail->data = n;
-  }
-  list->tail->data = n;
+  if ( list->head ) list->head->prev = n;
   list->head = n;
   n->prev = NULL;
 }
