@@ -82,9 +82,11 @@ void pushBack(List * list, const void * data) {
 
 void pushCurrent(List * list, const void * data) {
   Node* n = createNode(data);
-  n->prev = list->current;
-  n->next = list->current->next;
-  list->current->next = n;
+  if ( list->current->next && list->current->prev ) {
+   n->next = list->current->next; //si la siguiente posicion exite no estamos en el final, por lo que la siguiente posicion del nodo a colocar apuntara a la siguiente(ACTUAL) del current
+    n->prev = list->current; // si la posicion anterior al current existe no estamos en la primera posicion pro lo que la psocion anterior del nodo a colocar apuntara al current
+  } //esta si o si al medio
+  
 
 }
 
