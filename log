@@ -437,3 +437,9 @@ Fri Mar 26 19:51:39 UTC 2021:
  tests:  9|3
 total_score: 35/70
 ccb8007
+Fri Mar 26 19:53:48 UTC 2021: 
+ list.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  9|3
+total_score: 35/70
+c3d8da7
