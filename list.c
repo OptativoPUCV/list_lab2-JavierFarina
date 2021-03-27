@@ -85,21 +85,21 @@ void pushBack(List * list, const void * data) {
 
 void pushCurrent(List * list, const void * data) {
   Node* nuevoNodo = createNode(data);
+  Node* aux;
   if ( list->head == NULL) {
     list->head = nuevoNodo;
     list->tail = list->head;
   }
-  if ( list->current->next == NULL ) { //caso qeu sea la cola
-  nuevoNodo->prev = list->current;
-  list->current->next = nuevoNodo->prev;
-  list->current = nuevoNodo;
-  }
-  if ( list->current->prev && list->current->next ) {
+  for ( aux = list->head ; aux != NULL || aux != list->current ; aux=aux->next );
+  if ( aux == NULL ) {
     nuevoNodo->prev = list->current;
+    list->current->next = nuevoNodo->prev;
+    list->current = nuevoNodo;
+  } else {
     nuevoNodo->next = list->current->next;
-    list->current->next = nuevoNodo;
+    nuevoNodo->prev = list->current;
+    list->current = nuevoNodo;
   }
-  
 
 }
 
