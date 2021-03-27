@@ -84,11 +84,21 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  Node* n = createNode(data);
-  if ( list->current->next && list->current->prev ) {
-   n->next = list->current->next; //si la siguiente posicion exite no estamos en el final, por lo que la siguiente posicion del nodo a colocar apuntara a la siguiente(ACTUAL) del current
-    n->prev = list->current; // si la posicion anterior al current existe no estamos en la primera posicion pro lo que la psocion anterior del nodo a colocar apuntara al current
-  } //esta si o si al medio
+  Node* nuevoNodo = createNode(data);
+  if ( list->head == NULL) {
+    list->head = nuevoNodo;
+    list->tail = list->head;
+  }
+  if ( list->current->next == NULL ) { //caso qeu sea la cola
+  nuevoNodo->prev = list->current;
+  list->current->next = nuevoNodo->prev;
+  list->current = nuevoNodo;
+  }
+  if ( list->current->prev && list->current->next ) {
+    nuevoNodo->prev = list->current;
+    nuevoNodo->next = list->current->next;
+    list->current->next = nuevoNodo;
+  }
   
 
 }
