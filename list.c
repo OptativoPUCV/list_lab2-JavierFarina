@@ -66,13 +66,10 @@ void * prevList(List * list) {
 }
 
 void pushFront(List * list, const void * data) {
-  Node* n = createNode(data);
-  n->next = list->head;
-  if ( list->head ) list->head->prev = n; //nueva cabecera
-  //pq es necesaria esa linea de codigo?
-  if ( list->tail == NULL) list->tail = n; //si la lista es de 1 elemento se agrega al final
-  list->head = n; //actualiza el primer dato
-  list->head->prev = NULL; //  no hay nada antes de la cabecera
+  Node* aux;
+  aux = list->head->next;
+  free(list);
+  list->head = aux;
 }
 
 void pushBack(List * list, const void * data) {
