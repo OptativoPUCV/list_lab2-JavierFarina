@@ -37,9 +37,6 @@ List * createList() {
 void * firstList(List * list) {
   list->current = list->head;
   return (void*)list->head->data;
-  /* 
-  aca debo hacer un casting a int o void?, si no hago el casting no retorna nada
-  */
 }
 
 void * nextList(List * list) {
