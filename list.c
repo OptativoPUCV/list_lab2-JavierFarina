@@ -127,6 +127,7 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
+  printf("%s", ((char*)list->current->data));
  return (void*)list->current->data;
 }
 
