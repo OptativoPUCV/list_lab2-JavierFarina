@@ -145,4 +145,5 @@ void cleanList(List * list) {
     while (list->head != NULL) {
         popFront(list);
     }
+    if (list == NULL ) printf("se logro borrar la lista");
 }
