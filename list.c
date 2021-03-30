@@ -121,17 +121,16 @@ if ( list->current == list->head ) {
   list->head = list->head->next;
   free(list->current);
   list->current = list->head;
-  return (void*)aux;
+  
 }
 else {
   list->current->next->prev = list->current->prev->next;
   list->current->prev->next = list->current->next->prev;
   free(list->current);
   list->current = list->head;
-  return (void*)aux;
 }
+return (void*)aux;
 
-return NULL;
 }
 
 void cleanList(List * list) {
