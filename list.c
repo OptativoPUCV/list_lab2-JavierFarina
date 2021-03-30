@@ -118,7 +118,7 @@ if ( list->head == NULL || list->current->next == NULL)
 Node* aux = list->current;
 if ( list->current->prev == NULL ) {
     
-  list->current->next->prev = NULL;
+  aux->next->prev = NULL;
   free(list->current);
   list->current = aux->next;
   list->head = list->current;
