@@ -113,7 +113,7 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-if ( list->head == NULL || list->current->next == NULL)
+if ( list->head == NULL )
   return NULL;
 const void* dato = list->current->data;
 if ( list->current == list->head ) {
@@ -136,6 +136,7 @@ else {
   list->current->next->prev = aux;
   free(list->current);
   list->current = aux->next->next;
+
   return (void*)dato;
 }
 
