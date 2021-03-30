@@ -121,7 +121,7 @@ if ( list->current == list->head ) {
   list->head = list->head->next;
   free(list->current);
   list->current = list->head;
-  return (void*) list->head->data;
+  return (void*) list->current->data;
 }
 /*
 else {
