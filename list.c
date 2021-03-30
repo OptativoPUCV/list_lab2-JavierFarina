@@ -47,7 +47,7 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
-  if ( list->tail  ) {
+  if ( list->tail ) {
     list->current = list->tail;
     return (void*)list->tail->data;
   }
@@ -81,8 +81,21 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  //Node* nuevoNodo = createNode(data);
- // Node* aux = list->current->prev;
+  Node* n = createNode(data);
+  if ( list->head == NULL ) {
+    list->head = n;
+    list->tail = list->head;
+  }
+  if ( list->current->next == NULL ) {
+    list->current->next = n;
+    n->prev = list->current;
+  }
+  if ( list->current->next ) {
+    n->next = list->current->next;
+    list->current->next->prev = n;
+    list->current->next = n;
+    n->prev = list->current;
+  }
   
 }
 
