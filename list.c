@@ -123,21 +123,12 @@ if ( list->current == list->head ) {
   list->current = list->head;
   return (void*) aux->data;
 }
-if ( list->current->prev == NULL ) {
-  const void* dato = list->current->data;
-  list->current->next->prev = NULL;
-  list->head = list->current->next;
-  free(list->current);
-  list->current = list->head;
-  return (void*)dato;
-}
 else {
-  Node* aux = list->current->prev;
   list->current->next->prev = list->current->prev->next;
   list->current->prev->next = list->current->next->prev;
   free(list->current);
-  list->current = aux->next;
- return (void*)aux->data;
+  list->current = list->head;
+  return (void*)aux->data;
 }
 
 }
