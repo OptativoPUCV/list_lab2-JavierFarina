@@ -127,6 +127,7 @@ else {
   Node* aux = list->current->prev;
   aux->next = list->current->next;
   list->current->next->prev = aux;
+  if ( list->current == list->tail ) list->tail = aux;
   free(list->current);
   list->current = aux->next->next;
 }
