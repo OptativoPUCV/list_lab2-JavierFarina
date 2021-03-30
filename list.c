@@ -128,7 +128,7 @@ else {
   aux->next = list->current->next;
   list->current->next->prev = aux;
   free(list->current);
-  list->current = list->head;
+  list->current = aux->next->next;
 }
 return (void*)dato;
 
