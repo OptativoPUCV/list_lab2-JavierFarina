@@ -121,17 +121,24 @@ if ( list->current == list->head ) {
   list->head = list->head->next;
   free(list->current);
   list->current = list->head;
-  
+  return (void*)dato;
+}
+if ( list->current == list->tail ) {
+  list->current->prev->next = NULL;
+  list->tail = list->current->prev;
+  free(list->current);
+  list->current = list->tail;
+  return (void*)dato;
 }
 else {
   Node* aux = list->current->prev;
   aux->next = list->current->next;
   list->current->next->prev = aux;
-  if ( list->current == list->tail ) list->tail = aux;
   free(list->current);
   list->current = aux->next->next;
+  return (void*)dato;
 }
-return (void*)dato;
+
 
 }
 
