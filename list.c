@@ -125,7 +125,7 @@ if ( list->current == list->head ) {
 }
 if ( list->current == list->tail ) {
   list->current->prev->next = NULL;
-  list->tail = list->current->prev;
+  list->tail = list->tail->prev;
   free(list->current);
   list->current = list->tail;
   return (void*)dato;
