@@ -113,8 +113,7 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-if ( list->head == NULL )
-  return NULL;
+if ( list->head == NULL ) return NULL;
 const void* dato = list->current->data;
 if ( list->current == list->head ) {
   list->current->next->prev = NULL;
@@ -127,7 +126,7 @@ if ( list->current == list->tail ) {
   list->current->prev->next = NULL;
   list->tail = list->tail->prev;
   free(list->current);
-  list->current = list->tail;
+  list->current = list->tail; // no existe la posisicon siguiente al eliminado
   return (void*)dato;
 }
 else {
@@ -136,7 +135,6 @@ else {
   list->current->next->prev = aux;
   free(list->current);
   list->current = aux->next->next;
-
   return (void*)dato;
 }
 
