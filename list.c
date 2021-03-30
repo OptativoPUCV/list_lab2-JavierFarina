@@ -146,4 +146,5 @@ void cleanList(List * list) {
         popFront(list);
     }
     if (list == NULL ) printf("se logro borrar la lista");
+    else printf("no se logra");
 }
