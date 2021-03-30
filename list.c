@@ -47,7 +47,7 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
-  if ( list->tail && list->tail->data ) {
+  if ( list->tail  ) {
     list->current = list->tail;
     return (void*)list->tail->data;
   }
@@ -81,39 +81,9 @@ void pushBack(List * list, const void * data) {
 }
 
 void pushCurrent(List * list, const void * data) {
-  Node* nuevoNodo = createNode(data);
-  //Node* aux;
-  if ( list->head == NULL) {
-    list->head = nuevoNodo;
-    list->tail = list->head;
-  }
-  if ( list->current == list->tail ) {
-    nuevoNodo->prev = list->current;
-    list->current->next = nuevoNodo;
-    list->current = nuevoNodo;
-  } else {
-    if ( list->head == list->current ) {
-      nuevoNodo->next = list->head;
-      list->head->prev = nuevoNodo;
-      list->head = nuevoNodo;
-    } else {
-    nuevoNodo->next = list->current->next;
-    nuevoNodo->prev = list->current;
-    list->current = nuevoNodo;
-    }
-  }
-  /*
-  for ( aux = list->head ; aux != NULL || aux != list->current ; aux = aux->next );
-  if ( aux == NULL ) {
-    nuevoNodo->prev = list->current;
-    list->current->next = nuevoNodo->prev;
-    list->current = nuevoNodo;
-  } else {
-    nuevoNodo->next = list->current->next;
-    nuevoNodo->prev = list->current;
-    list->current = nuevoNodo;
-  }
-*/
+  //Node* nuevoNodo = createNode(data);
+ // Node* aux = list->current->prev;
+  
 }
 
 void * popFront(List * list) {
