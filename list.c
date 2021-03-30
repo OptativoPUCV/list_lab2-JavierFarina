@@ -90,13 +90,14 @@ void pushCurrent(List * list, const void * data) {
     list->current->next = n;
     n->prev = list->current;
     list->current = n;
-    list->tail = n;
+    list->tail = list->current;
   }
   if ( list->current->next ) {
     n->next = list->current->next;
     list->current->next->prev = n;
     list->current->next = n;
     n->prev = list->current;
+    list->current = n;
   }
   
 }
